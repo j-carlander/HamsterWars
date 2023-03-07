@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+      a {
+        margin-top: 1em;
+        padding: 0.75em 1.5em;
+        border: 1px solid black;
+        font-size: 1.5rem;
+        text-decoration: none;
+        font-weight: 400;
+      }
+      .flex {
+        display: flex;
+        gap: 1em;
+        width: max-content;
+      }
+      .contendant {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: min-content;
+      }
+      .contendant p {
+        padding: 1em 2em 0;
+        width: max-content;
+        text-shadow: 0 0 15px white;
+        font-size: large;
+        font-weight: 700;
+      }
+      .graph-wrapper {
+        display: flex;
+        width: 916px;
+        height: 40px;
+      }
+      .hamster_1,
+      .hamster_2 {
+        height: 40px;
+      }
+      .hamster_1 {
+        background-color: rgb(0, 195, 255);
+      }
+      .hamster_2 {
+        background-color: rgb(225, 0, 255);
+      }
+      .total {
+        margin-bottom: 3em;
+        font-size: large;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Results</h2>
+    <div class="flex">
+      {{#hamsters}}
+      <div class="contendant">
+        <img src="{{img}}" width="450" />
+        <p class="{{name}}">{{votes}}</p>
+      </div>
+      {{/hamsters}}
+    </div>
+    <div class="graph-wrapper">
+      {{#hamsters}}
+      <div class="{{name}}" style="flex-grow:{{votes}};"></div>
+      {{/hamsters}}
+    </div>
+    <p class="total">Total votes: <span>{{total}}</span></p>
+    <a href="/vote">Take a vote!</a>
+    <a href="/">Home</a>
+  </body>
+</html>

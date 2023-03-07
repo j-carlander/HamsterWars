@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+      .flex {
+        display: flex;
+        gap: 1em;
+        width: max-content;
+      }
+      .grid {
+        display: grid;
+        align-items: center;
+      }
+      button {
+        padding: 0.75em 1.5em;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Vote on the cutest hamster!</h2>
+    <!-- <img src="./images/not_a_hamster.png" alt="" /> -->
+
+    <form action="/rateHamster" method="post">
+      <div class="flex">
+        {{ #hamsters }}
+        <div class="grid">
+          <label for="{{name}}"><img src="{{img}}" width="450" /></label>
+          <input type="radio" name="votedOn" id="{{name}}" value="{{name}}" />
+        </div>
+        {{ /hamsters }}
+      </div>
+
+      <button type="submit">Vote!</button>
+    </form>
+  </body>
+</html>
